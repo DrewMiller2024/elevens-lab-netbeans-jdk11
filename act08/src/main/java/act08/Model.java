@@ -43,13 +43,27 @@ public class Model implements MessageHandler {
     // Initialize the game counters
     gamesWon = 0;
     gamesPlayed = 0;    
+    newGame();
   }
   
   /**
    * Initialize the model to start a new game
    */
   private void newGame() {
-    // To be implemented in Activity 08
+    deck.shuffle();
+    for (int i = 0; i < Constants.BOARD_SIZE; i++) {
+        board[i] = deck.deal();
+        cardSelected[i] = false;
+    }
+    validSelection = false;
+    //checks if the player is initially dealt a deck that has no matches
+    if (isGameOver()) {
+        gamesPlayed++;
+        gameStatus = Constants.YOU_LOSE;
+    } else {
+        gameStatus = Constants.IN_PLAY;
+    }
+    gameWon = false;
   }
 
   /**
@@ -57,7 +71,44 @@ public class Model implements MessageHandler {
    * @return True if move is legal
    */
   private boolean isLegalMoveSelected() {
-    // To be implemented in Activity 08
+      boolean legalMove = false;
+      int count = 0;
+      int totalPointValue = 0;
+      boolean j = false;
+      boolean q = false;
+      boolean k = false;
+      for (int i = 0; i < Constants.BOARD_SIZE; i++) {
+          if (cardSelected[i]) {
+            count++;
+            int value = board[i].getPointValue();
+            totalPointValue += value;
+            if (value == 0) {
+                switch (board[i].getRank()) {
+                    case "jack":
+                        j = true;
+                        break;
+                    case "queen":
+                        q = true;
+                        break;
+                    case "king" :
+                        k = true;
+                        break;
+                    default :
+                        break;
+                }
+            }
+          }
+      }
+      if (count == 2) {
+          if (totalPointValue == 11) {
+              legalMove = true;
+          }
+      } else if (count == 3) {
+          if (j && q && k) {
+              legalMove = true;
+          }
+      }
+      return legalMove;
   }
   
   /**
@@ -67,6 +118,25 @@ public class Model implements MessageHandler {
    */
   private boolean legalMovesAvailable() {
     // To be implemented in Activity 08
+    boolean j = false;
+    boolean q = false;
+    boolean k = false;
+    for (int i = 0; i < Constants.BOARD_SIZE; i++) {
+        switch (board[i].getRank()) {
+                    case "jack":
+                        j = true;
+                        break;
+                    case "queen":
+                        q = true;
+                        break;
+                    case "king" :
+                        k = true;
+                        break;
+                    default :
+                        break;
+                }
+    }
+    
   }
   
   /**
