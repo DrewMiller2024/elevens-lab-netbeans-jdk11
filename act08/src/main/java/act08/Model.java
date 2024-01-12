@@ -136,6 +136,17 @@ public class Model implements MessageHandler {
                         break;
                 }
     }
+    if (j && q && k) {
+        return true;
+    }
+    for (Card c : board) {
+        for (Card c2 : board) {
+            if (c.getPointValue() + c2.getPointValue() == 11) {
+                return true;
+            }
+        }
+    }
+    return false;
   }
   
   /**
@@ -143,7 +154,13 @@ public class Model implements MessageHandler {
    * @return True if the game is over
    */
   private boolean isGameOver() {
-    // To be implemented in Activity 08
+    if (deck.size() == 0) {
+        return true;
+    } else if (!legalMovesAvailable()) {
+        return true;
+    }
+    
+    return false;
   }
   
   /**
