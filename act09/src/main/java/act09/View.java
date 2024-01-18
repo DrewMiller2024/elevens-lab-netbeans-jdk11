@@ -1,4 +1,4 @@
-package elevensnetbeans.act09;
+package act09;
 
 import com.mrjaffesclass.apcs.messenger.*;
 import javax.swing.JLabel;
@@ -80,22 +80,31 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         directionsLabel.setToolTipText("");
 
         card1.setText("card1");
+        card1.setName("0"); // NOI18N
 
         card2.setText("card2");
+        card2.setName("1"); // NOI18N
 
         card3.setText("card3");
+        card3.setName("2"); // NOI18N
 
         card4.setText("card4");
+        card4.setName("3"); // NOI18N
 
         card5.setText("card5");
+        card5.setName("4"); // NOI18N
 
         card6.setText("card6");
+        card6.setName("5"); // NOI18N
 
         card7.setText("card7");
+        card7.setName("6"); // NOI18N
 
         card8.setText("card8");
+        card8.setName("7"); // NOI18N
 
         card9.setText("card9");
+        card9.setName("8"); // NOI18N
 
         playBtn.setText("Play");
 
@@ -257,7 +266,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
     private javax.swing.JLabel numberOfGamesWonLabel;
     private javax.swing.JButton playBtn;
     // End of variables declaration//GEN-END:variables
-
+    private javax.swing.JLabel[] cards = {card1, card2, card3, card4, card5, card6, card7, card8, card9};
     /**
    * *********** FOR TESTING ONLY -- DO NOT CHANGE OR REMOVE ***********
    */

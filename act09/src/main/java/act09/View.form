@@ -163,46 +163,55 @@
     <Component class="javax.swing.JLabel" name="card1">
       <Properties>
         <Property name="text" type="java.lang.String" value="card1"/>
+        <Property name="name" type="java.lang.String" value="0" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="card2">
       <Properties>
         <Property name="text" type="java.lang.String" value="card2"/>
+        <Property name="name" type="java.lang.String" value="1" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="card3">
       <Properties>
         <Property name="text" type="java.lang.String" value="card3"/>
+        <Property name="name" type="java.lang.String" value="2" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="card4">
       <Properties>
         <Property name="text" type="java.lang.String" value="card4"/>
+        <Property name="name" type="java.lang.String" value="3" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="card5">
       <Properties>
         <Property name="text" type="java.lang.String" value="card5"/>
+        <Property name="name" type="java.lang.String" value="4" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="card6">
       <Properties>
         <Property name="text" type="java.lang.String" value="card6"/>
+        <Property name="name" type="java.lang.String" value="5" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="card7">
       <Properties>
         <Property name="text" type="java.lang.String" value="card7"/>
+        <Property name="name" type="java.lang.String" value="6" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="card8">
       <Properties>
         <Property name="text" type="java.lang.String" value="card8"/>
+        <Property name="name" type="java.lang.String" value="7" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="card9">
       <Properties>
         <Property name="text" type="java.lang.String" value="card9"/>
+        <Property name="name" type="java.lang.String" value="8" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="playBtn">
