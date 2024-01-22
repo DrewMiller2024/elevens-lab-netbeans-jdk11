@@ -28,6 +28,15 @@ public class View extends javax.swing.JFrame implements MessageHandler {
    * to any required messages
    */
   public void init() {
+    cards[0] = card1;
+    cards[1] = card2;
+    cards[2] = card3;
+    cards[3] = card4;
+    cards[4] = card5;
+    cards[5] = card6;
+    cards[6] = card7;
+    cards[7] = card8;
+    cards[8] = card9;
   }
   
   /**
@@ -38,7 +47,15 @@ public class View extends javax.swing.JFrame implements MessageHandler {
    * @return number of selected cards
    */
   private int setBorders(boolean[] cardSelectedStatus, Color color, int thickness) {
-
+      int selected = 0;
+      for (int i = 0; i < Constants.BOARD_SIZE; i++) {
+          if (cardSelectedStatus[i]) {
+              selected++;
+              cards[i].setBorder(new LineBorder(color, 2));
+          } else {
+              cards[i].setBorder(null);
+          }
+      }
   }
   
   /**
