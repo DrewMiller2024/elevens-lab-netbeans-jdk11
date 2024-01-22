@@ -51,11 +51,12 @@ public class View extends javax.swing.JFrame implements MessageHandler {
       for (int i = 0; i < Constants.BOARD_SIZE; i++) {
           if (cardSelectedStatus[i]) {
               selected++;
-              cards[i].setBorder(new LineBorder(color, 2));
+              cards[i].setBorder(new LineBorder(color, 3));
           } else {
               cards[i].setBorder(null);
           }
       }
+      return selected;
   }
   
   /**
@@ -64,7 +65,9 @@ public class View extends javax.swing.JFrame implements MessageHandler {
    * @param thickness Border thickness
    */
   private void setAllBorders(Color color, int thickness) {
-
+      for (int i = 0; i < Constants.BOARD_SIZE; i++) {
+          cards[i].setBorder(new LineBorder(color, thickness));
+      }
   } 
   
   /**
