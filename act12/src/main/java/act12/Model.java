@@ -46,7 +46,10 @@ public class Model implements MessageHandler {
     
     // Start a new game
     newGame();    
-
+    mvcMessaging.subscribe("view:cardClicked", this);
+    mvcMessaging.subscribe("view:play", this);
+    mvcMessaging.subscribe("view:clearAll", this);
+    mvcMessaging.subscribe("view:newGame", this);
   }
   
   /**
@@ -184,7 +187,25 @@ public class Model implements MessageHandler {
         
         break;
       }
-
+      case "view:cardClicked": {
+          if (gameStatus == Constants.IN_PLAY) {
+              int i = (Integer) messagePayload;
+              if (board[i] != null) {
+                  cardSelected[i] = !cardSelected[i];
+              }
+          }
+          break;
+      }
+      case "view:clearAll": {
+          for (int i = 0; i < Constants.BOARD_SIZE; i++) {
+              cardSelected[i] = false;
+          }
+          break;
+      }
+      case "view:newGame": {
+          newGame();
+          break;
+      }
       default: {
         
       }
