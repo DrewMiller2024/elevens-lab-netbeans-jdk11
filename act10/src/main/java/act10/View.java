@@ -51,7 +51,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
       for (int i = 0; i < Constants.BOARD_SIZE; i++) {
           if (cardSelectedStatus[i]) {
               selected++;
-              cards[i].setBorder(new LineBorder(color, 3));
+              cards[i].setBorder(new LineBorder(color, thickness));
           } else {
               cards[i].setBorder(null);
           }
