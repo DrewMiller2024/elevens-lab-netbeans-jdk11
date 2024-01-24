@@ -40,6 +40,13 @@ public class View extends javax.swing.JFrame implements MessageHandler {
     cards[6] = card7;
     cards[7] = card8;
     cards[8] = card9;
+    mvcMessaging.subscribe("model:boardChanged", this);
+    mvcMessaging.subscribe("model:selectedCardsChanged", this);
+    mvcMessaging.subscribe("model:isLegalMove", this);
+    mvcMessaging.subscribe("model:cardsLeftInDeck", this);
+    mvcMessaging.subscribe("model:gamesWon", this);
+    mvcMessaging.subscribe("model:gamesPlayed", this);
+    mvcMessaging.subscribe("model:gameStatus", this);
   }
   
   /**
@@ -113,7 +120,47 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         clearAllBtn.setEnabled(count > 0);
         break;        
       }
-      
+      case "model:boardChanged": {
+          Card[] board = (Card[]) messagePayload;
+          for (int i = 0; i < Constants.BOARD_SIZE; i++) {
+              if (board[i] == null) {
+                  cards[i].setText("No card");
+              } else {
+                  cards[i].setText(board[i].toString());
+              }
+          }
+          break;
+      }
+      case "model:isLegalMove": {
+          if ((boolean)messagePayload) {
+              playBtn.setEnabled(true);
+          }
+          break;
+      } 
+      case "model:cardsLeftInDeck": {
+          String text = ""+(int)messagePayload+"";
+          cardsLeft.setText(text);
+          break;
+      }
+      case "model:gamesWon": {
+          String text = ""+(int)messagePayload+"";
+          gamesWon.setText(text);
+          break;
+      }
+      case "model:gamesPlayed": {
+          String text = ""+(int)messagePayload+"";
+          gamesPlayed.setText(text);
+          break;
+      }
+      case "gameStatus": {
+          int status = (int)messagePayload;
+          if (status == Constants.YOU_LOSE) {
+              setAllBorders(Color.RED, 2);
+          } else if (status == Constants.YOU_WIN){
+              setAllBorders(Color.GREEN, 2);
+          }
+          break;
+      }
       default: {
         
       }
