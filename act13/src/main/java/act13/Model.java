@@ -78,7 +78,13 @@ public class Model implements MessageHandler {
       gamesPlayed++;
       gameStatus = Constants.YOU_LOSE;
     }
-
+    mvcMessaging.notify("model:gamesWon", gamesWon);
+    mvcMessaging.notify("model:gamesPlayed", gamesPlayed);
+    mvcMessaging.notify("model:gameStatus", gameStatus);
+    mvcMessaging.notify("model:boardChanged", board);
+    mvcMessaging.notify("model:selectedCardsChanged", cardSelected);
+    mvcMessaging.notify("model:isLegalMove", isLegalMoveSelected());
+    mvcMessaging.notify("model:cardsLeftInDeck", deck.size());
   }
 
   /**
@@ -225,13 +231,6 @@ public class Model implements MessageHandler {
       // The New game button was pressed
       case "view:newGame": {
         this.newGame();
-        mvcMessaging.notify("model:boardChanged", board);
-        mvcMessaging.notify("model:selectedCardsChanged", cardSelected);
-        mvcMessaging.notify("model:isLegalMove", false);
-        mvcMessaging.notify("model:cardsLeftInDeck", deck.size());
-        mvcMessaging.notify("model:gamesWon", gamesWon);
-        mvcMessaging.notify("model:gamesPlayed", gamesPlayed);
-        mvcMessaging.notify("model:gameStatus", gameStatus);
         break;
       }
       
