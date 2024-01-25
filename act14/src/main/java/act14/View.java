@@ -124,9 +124,9 @@ public class View extends javax.swing.JFrame implements MessageHandler {
           Card[] board = (Card[]) messagePayload;
           for (int i = 0; i < Constants.BOARD_SIZE; i++) {
               if (board[i] == null) {
-                  cards[i].setText("No card");
+                  cards[i].setIcon(new ImageIcon("No card"));
               } else {
-                  cards[i].setText(board[i].toString());
+                  cards[i].setIcon(new ImageIcon(board[i].toString()));
               }
           }
           break;
@@ -134,6 +134,8 @@ public class View extends javax.swing.JFrame implements MessageHandler {
       case "model:isLegalMove": {
           if ((boolean)messagePayload) {
               playBtn.setEnabled(true);
+          } else {
+              playBtn.setEnabled(false);
           }
           break;
       } 
@@ -152,12 +154,12 @@ public class View extends javax.swing.JFrame implements MessageHandler {
           gamesPlayed.setText(text);
           break;
       }
-      case "gameStatus": {
+      case "model:gameStatus": {
           int status = (int)messagePayload;
           if (status == Constants.YOU_LOSE) {
-              setAllBorders(Color.RED, 2);
+              this.setAllBorders(Color.RED, 2);
           } else if (status == Constants.YOU_WIN){
-              setAllBorders(Color.GREEN, 2);
+              this.setAllBorders(Color.GREEN, 2);
           }
           break;
       }

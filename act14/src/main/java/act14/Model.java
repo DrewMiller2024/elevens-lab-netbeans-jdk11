@@ -82,10 +82,6 @@ public class Model implements MessageHandler {
 
     // Send messages with the values of the model.  The View will subscribe to
     // these messages and update appropriately
-    mvcMessaging.notify("model:boardChanged", board);
-    mvcMessaging.notify("model:selectedCardsChanged", cardSelected);
-    mvcMessaging.notify("model:isLegalMove", isLegalMoveSelected());
-    mvcMessaging.notify("model:cardsLeftInDeck", deck.size());
     mvcMessaging.notify("model:gamesWon", gamesWon);
     mvcMessaging.notify("model:gamesPlayed", gamesPlayed);
     mvcMessaging.notify("model:gameStatus", gameStatus);
@@ -234,6 +230,10 @@ public class Model implements MessageHandler {
       // The New game button was pressed
       case "view:newGame": {
         this.newGame();
+        mvcMessaging.notify("model:boardChanged", board);
+        mvcMessaging.notify("model:selectedCardsChanged", cardSelected);
+        mvcMessaging.notify("model:isLegalMove", isLegalMoveSelected());
+        mvcMessaging.notify("model:cardsLeftInDeck", deck.size());
       }
       
       default: {
