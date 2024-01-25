@@ -13,7 +13,7 @@ import com.mrjaffesclass.apcs.messenger.*;
  * @author Roger Jaffe
  * @version 1.0
  */
-public class Controller implements MessageHandler {
+public class Elevens implements MessageHandler {
 
   private final Messenger mvcMessaging;
 
@@ -33,7 +33,7 @@ public class Controller implements MessageHandler {
    *  controller:changeButton (sent by the Controller to notify the Model to change 
    *    the value of a Model variable
    */
-  public Controller() {
+  public Elevens() {
     // Create the local messaging class
     mvcMessaging = new Messenger(true);
 
@@ -71,7 +71,7 @@ public class Controller implements MessageHandler {
    * @param args the command line arguments
    */
   public static void main(String[] args) {
-    Controller app = new Controller();  // Create our controller...
+    Elevens app = new Elevens();  // Create our controller...
     app.init();                         // ...and init it too
   }
   

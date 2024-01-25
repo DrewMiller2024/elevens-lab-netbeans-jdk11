@@ -28,8 +28,12 @@ public class Constants {
   public static final int YOU_LOSE = 2;
   public static final int IN_PLAY = 0;
   
+  
   /**
    * Color and line width constants go here
    */
-  public static final Color SELECTED_COLOR = Color.BLUE;
+  public static final Color SELECTED_COLOR = Color.YELLOW;
+  public static final Color WIN_COLOR = Color.BLUE;
+  public static final Color LOSE_COLOR = Color.BLACK;
+  public static final int BORDER_WIDTH = 2;
 }

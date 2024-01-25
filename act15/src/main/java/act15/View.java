@@ -117,7 +117,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
       // and enable/disable the Clear all button accordingly
       case "model:selectedCardsChanged": {
         boolean[] cardSelectedStatus = (boolean[]) messagePayload;
-        int count = setBorders(cardSelectedStatus, Color.BLUE, 2);
+        int count = setBorders(cardSelectedStatus, Constants.SELECTED_COLOR, Constants.BORDER_WIDTH);
         clearAllBtn.setEnabled(count > 0);
         break;        
       }
@@ -168,12 +168,12 @@ public class View extends javax.swing.JFrame implements MessageHandler {
             
           case Constants.YOU_WIN:
             directionsLabel.setText("YOU WIN!!  Game over!");
-            setAllBorders(Color.GREEN, 2);
+            setAllBorders(Constants.WIN_COLOR, Constants.BORDER_WIDTH);
             break;
             
           case Constants.YOU_LOSE:
             directionsLabel.setText("YOU LOSE!!  Game over!");
-            setAllBorders(Color.RED, 2);
+            setAllBorders(Constants.LOSE_COLOR, Constants.BORDER_WIDTH);
             break;
             
           default:

@@ -3,16 +3,16 @@ apply plugin: 'jacoco'
 apply plugin: 'application'
 
 
-mainClassName = 'act16.Controller'
+mainClassName = 'act16.Elevens'
 
 repositories {
     jcenter()
 }
 
 dependencies {
-    testCompile 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
 }
 
 dependencies {
-    compile fileTree(dir: 'lib', include: '*.jar')
+    implementation fileTree(dir: 'lib', include: '*.jar')
 }
